@@ -2,39 +2,32 @@
 
 function division(number, dividedBy){
     // Write you logic here.
-    let sign = ((number < 0) ^ (dividedBy < 0)) ? -1 : 1;
- 
-// Update both divisor and
-// dividend positive
-dividend = Math.abs(number);
-divisor = Math.abs(dividedBy);
-// Initialize the quotient
-let quotient = 0;
-while (number >= dividedBy) {
-    number -= dividedBy;
-    ++quotient;
+    if (number< 0) return -division(-number, dividedBy);
+    if (dividedBy < 0) return -division(number, -dividedBy);
+    if (number < dividedBy) return 0;
+    if (dividedBy==0) return 0;
+    return 1 + division(number - dividedBy, dividedBy);
 }
-//if the sign value computed earlier is -1 then negate the value of quotient
-if(sign==-1) quotient=-quotient;
-return quotient;
-}
- 
-//   return division;
-// }
 
 /* Write a function that implement Math.pow(x,n) but using recursion
 Example:
 pow(2,4) = 16
 */
 
-
+///////////////
 function pow(x,n){
-    if (n == 1) {
-        return x;
-      } else {
-        return x * pow(x, n - 1);
-      }
-    }
+    // Write you logic here.
+    if (n === 0) 
+    {
+     return 1;
+     }
+   else 
+   {
+     return x * pow(x, n-1);
+   }
+
+}
+////////////////////
     
   // return( pow(, 3) );
     // Write you logic here.
@@ -49,18 +42,25 @@ Write a function that take n as parameter and return the nth element in the Fibo
 Example: n = 4 ==> 3, n= 0 ==> 0, n = 3 ==> 2 */
 
 function fibonacci(n){
+    /////////////
+    if (n <= 1)
+    return n;
+return fibonacci(n-1) + fibonacci(n-2);
+
+}
+    /////////////
     // Write you logic here.
-    if (n===1) 
-  {
-    return [0, 1];
-  } 
-  else 
-  {
-    var s = fibonacci(n - 1);
-    s.push(s[s.length - 1] + s[s.length - 2]);
-    return s;
-  }
-};
+//     if (n===1) 
+//   {
+//     return [0, 1];
+//   } 
+//   else 
+//   {
+//     var s = fibonacci(n - 1);
+//     s.push(s[s.length - 1] + s[s.length - 2]);
+//     return s;
+//   }
+// };
 //     return;
 // }
 
