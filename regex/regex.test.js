@@ -7,17 +7,31 @@ characters (no numbers and symbols) and it should end with capital A else return
 
 function capitalA(s){
     // Add your logic.
-    //////////
-    let z
-for (let i=0 ; i<s.length;i++){
-    if(s[i].type=="txt"){
+    ////////////////
+    let testString = s.match(/(|[a-z]|[A-Z])/g);
+    let testNumSym =s.match(/[!@#$%&()_*\-=\[\]{};':"\\|,.<>\/?]+|\d/g); 
+    let lastChar= s.endsWith('A')
+    if(testString != null && testNumSym == null&& lastChar ==true){
+        return true
 
-      //  if()
+    }else{
+        return false
     }
+   
 }
-    //////
-    return;
-}
+
+    ///////
+//     //////////
+//     let z
+// for (let i=0 ; i<s.length;i++){
+//     if(s[i].type=="txt"){
+
+//       //  if()
+//     }
+// }
+//     //////
+//     return;
+// }
 
 
 /* Write a function that take a string and return true if the the sting is following the emails pattern
@@ -25,9 +39,15 @@ which end with io (example@example.io) */
 
 function ioEmail(email){
     // Add your logic.
-    return;
+    let testEmail = email.match(/^[\w]+@([\w-]+\.)+[\w-]{2,4}$/g);
+    if(testEmail != null){
+        return true;
+    }else{
+        return false;
+    }
+  
 }
-
+//////////////////////////////////////////
 /* You have a text that contain image names with their extention you need to write a function to 
 find all images in that text and return their names and extention in an array 
 
@@ -38,7 +58,19 @@ required extention are jpg, jpeg and png.
 function imagesSearcher(text){
     let arr = [];
     // Add your logic.
-    return arr
+
+    ///////////////////////////
+    let textArr = text.split(" ");
+    textArr.forEach(element => {
+
+
+        //////////////////////////////
+        if(element.match(/([a-zA-Z0-9\s_\\.\-\(\):])+(.jpeg|.jpg|.png)$/g) != null){
+        arr.push(element);
+        }
+    });
+    ///////////////////////////////////
+    return arr;
 }
 
 
